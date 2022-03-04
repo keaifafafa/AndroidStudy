@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">01-Hello-World</string>
+    <string name="name">Hello World!</string>
+    <string name="name_cn">你好 世界!</string>
+</resources>
