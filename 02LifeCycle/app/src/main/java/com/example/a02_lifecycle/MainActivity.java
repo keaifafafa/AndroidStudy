@@ -12,15 +12,15 @@ import android.widget.TextView;
  * 认识 Android 的生命周期
  */
 public class MainActivity extends AppCompatActivity {
-
+    // 创建方法
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 设置试图布局界面
         setContentView(R.layout.activity_main);
         // 先获取对象
         Button button = findViewById(R.id.button);
         TextView textView = findViewById(R.id.textView);
+
         Log.i("TAG", "onCreate");
         // 绑定事件【创建匿名对象，监听器】
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,4 +67,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         Log.i("TAG", "onRestart");
     }
+
+
 }
