@@ -15,10 +15,16 @@ public class MainActivity01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main01);
         Log.d("TAg", "MainActivity01执行了onCreate");
+
+        // 将其添加到 List集合中
+        ActivityManager.addActivity(this);
+
         // 跳转视图按钮
         Button btn = findViewById(R.id.button);
+
         // 关闭按钮
         Button closeBtn = findViewById(R.id.button3);
+
         // 跳转视图按钮监听器
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +35,7 @@ public class MainActivity01 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         // 关闭按钮监听器
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,5 +43,11 @@ public class MainActivity01 extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityManager.removeActivity(this);
     }
 }

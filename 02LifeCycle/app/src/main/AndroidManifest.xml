@@ -11,19 +11,23 @@
         android:theme="@style/Theme.02LifeCycle">
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".MainActivity01"
-            android:exported="true"
-            android:launchMode="singleTop">
+            android:exported="true">
             <!-- 第一个执行的程序需要写这个 -->
             <intent-filter>
-
                 <!-- 主活动 -->
                 <action android:name="android.intent.action.MAIN" />
                 <!-- 显示在程序列表中 -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity01"
+            android:exported="true">
+            <!--    设置返回按钮        -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity01"></meta-data>
         </activity>
         <activity
             android:name=".MainActivity02"

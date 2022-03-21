@@ -1,7 +1,10 @@
 package com.example.a02_lifecycle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,8 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // 先获取对象
-        Button button = findViewById(R.id.button);
+        // 将其添加到 List集合中
+        ActivityManager.addActivity(this);
+
+        // 跳转按钮
+        Button btn = findViewById(R.id.button4);
+
+        // 显示日志信息
+        Button button = findViewById(R.id.button2);
         TextView textView = findViewById(R.id.textView);
 
         Log.i("TAG", "onCreate");
@@ -28,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("info", "这是一个information信息");
                 Log.d("JSJ", "这是一个Debug信息");
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 参数一是当前视图，二是需要跳转的视图
+                Intent intent = new Intent(MainActivity.this, MainActivity01.class);
+                // 开启另一个视图【需要跳转的视图】
+                startActivity(intent);
             }
         });
     }
@@ -48,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("TAG", "onDestroy");
+        // 从List中移除
+        ActivityManager.removeActivity(this);
     }
 
     @Override
