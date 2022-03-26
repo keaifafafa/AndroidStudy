@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rdg1;
     Button message;
     RadioButton btn1, btn2, btn3, btn4;
-    boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
