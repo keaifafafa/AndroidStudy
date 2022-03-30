@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">10Spinner01</string>
+    <string name="title_name">请选择字体颜色</string>
+    <string-array name="font_color">
+        <item>红色</item>
+        <item>蓝色</item>
+        <item>绿色</item>
+    </string-array>
+
+</resources>

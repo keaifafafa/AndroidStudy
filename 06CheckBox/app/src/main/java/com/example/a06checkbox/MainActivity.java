@@ -59,27 +59,21 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         /**
          * 修改 加粗和倾斜不兼容的问题
+         * 思路:很简单
+         * 1、如果加粗按钮被选中，则会进行判断，如果斜体也被选中，则会既加粗又倾斜，否则，只进行加粗
+         * 2、如果加粗没被选中，也会判断倾斜又没有被选中，有的话就会倾斜，没有的话就会变成无任何状态。
          */
         cbBold.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                // 如果被选中 i + 1， 取消选中 则 i - 1
                 if (b) {
-                    i++;
-                    // 如果两个都被选中，即既加粗又斜体
-                    if (i == 2
-                    ) {
+                    if (cbItalic.isChecked()) {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.BOLD_ITALIC);
-                    }
-                    // 只有一个被选中
-                    else {
+                    } else {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
                     }
-                }
-                // 取消选中，则 i - 1
-                else {
-                    i--;
-                    if (i == 1) {
+                } else {
+                    if (cbItalic.isChecked()) {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
                     } else {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
@@ -90,20 +84,19 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         /**
          * 字体倾斜事件绑定
+         * 思路同上
          */
         cbItalic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    i++;
-                    if (i == 2) {
+                    if (cbBold.isChecked()) {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.BOLD_ITALIC);
                     } else {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
                     }
                 } else {
-                    i--;
-                    if (i == 1) {
+                    if (cbBold.isChecked()) {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
                     } else {
                         textView1.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
