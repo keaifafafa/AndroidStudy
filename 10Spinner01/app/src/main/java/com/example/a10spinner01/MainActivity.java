@@ -11,9 +11,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Spinner spColor, spSize;
-    TextView textView;
-    String[] fontSize = {"小号字", "中号字", "大号字"};
+    private static Spinner spColor, spSize;
+    private static TextView textView;
+    private static String[] fontSize = {"小号字", "中号字", "大号字"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * 没有选中任何参数
+             * @param adapterView
+             */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -55,7 +59,34 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * 适配器方式二
+         * 第一个参数是文本
+         * 第二个参数是布局
+         * 第三个参数是需要传入的数据
          */
-//        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(this, android.R.id.sp, fontSize);
+        ArrayAdapter<String> stringArrayAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, fontSize);
+        spSize.setAdapter(stringArrayAdapter);
+        // 设置下拉的背景样式
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_checked);
+        // 设置被选择时的监听器事件
+        spSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    textView.setTextSize(15);
+                }
+                if (i == 1) {
+                    textView.setTextSize(25);
+                }
+                if (i == 2) {
+                    textView.setTextSize(50);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }

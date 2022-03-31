@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">11List01</string>
+    <string-array name="city">
+        <item>承德</item>
+        <item>沧州</item>
+        <item>保定</item>
+        <item>石家庄</item>
+        <item>唐山</item>
+    </string-array>
+
+</resources>
