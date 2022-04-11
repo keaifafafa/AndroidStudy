@@ -1,6 +1,7 @@
 package com.example.a12recyclerview01;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,10 +24,16 @@ public class MainActivity extends AppCompatActivity {
         // 初始化集合
         initFruit();
         recyclerView = findViewById(R.id.recycler);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        // 布局管理器1：线性布局管理器
+        /*LinearLayoutManager linearLayoutManager =
+                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);*/
+        // 布局管理器2：网格布局管理器
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+
         MyFruitAdapter myFruitAdapter = new MyFruitAdapter(fruitList);
         // 设置布局
-        recyclerView.setLayoutManager(linearLayoutManager);
+        // recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);
         // 设置适配器
         recyclerView.setAdapter(myFruitAdapter);
     }

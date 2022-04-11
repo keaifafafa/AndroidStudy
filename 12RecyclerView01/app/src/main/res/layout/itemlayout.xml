@@ -12,10 +12,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_marginLeft="15dp"
-        android:layout_width="match_parent"
+        android:layout_width="314dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="15dp"
         android:text="TextView"
         android:textSize="25sp" />
 </LinearLayout>
