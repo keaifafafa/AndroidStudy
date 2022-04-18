@@ -1,5 +1,6 @@
 package com.example.a12recyclerview01;
 
+import android.graphics.Color;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +39,13 @@ public class MyFruitAdapter extends RecyclerView.Adapter<MyFruitAdapter.MyViewHo
     static class MyViewHold extends RecyclerView.ViewHolder {
         TextView fTextView;
         ImageView fImageView;
+        TextView price;
 
         public MyViewHold(@NonNull View itemView) {
             super(itemView);
             // 注意转型
             fTextView = (TextView) itemView.findViewById(R.id.textView);
+            price = (TextView) itemView.findViewById(R.id.textView2);
             fImageView = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
@@ -64,6 +69,11 @@ public class MyFruitAdapter extends RecyclerView.Adapter<MyFruitAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHold holder, int position) {
         holder.fTextView.setText(fruitList.get(position).getFruitName());
         holder.fImageView.setImageResource(fruitList.get(position).getFruitImageId());
+        holder.price.setText("价格：" + fruitList.get(position).getPrice() + "元");
+        // 深黄色
+        holder.price.setTextColor(Color.rgb(128, 128, 0));
+
+
     }
 
     @Override
