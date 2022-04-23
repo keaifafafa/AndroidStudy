@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/set_background"
+        android:title="设置背景">
+        <menu>
+            <item
+                android:id="@+id/bg_menu1"
+                android:title="南湖小船" />
+            <item
+                android:id="@+id/bg_menu2"
+                android:title="大好河山" />
+            <item
+                android:id="@+id/bg_menu3"
+                android:title="红旗飘扬" />
+            <item
+                android:id="@+id/bg_menu4"
+                android:title="威武之师" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/set_text_color"
+        android:title="设置文本颜色">
+        <menu>
+            <item
+                android:id="@+id/text_red"
+                android:title="红色" />
+            <item
+                android:id="@+id/text_blue"
+                android:title="蓝色" />
+            <item
+                android:id="@+id/text_yellow"
+                android:title="黄色" />
+            <item
+                android:id="@+id/text_green"
+                android:title="绿色" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/exit_menu"
+        android:title="退出" />
+</menu>

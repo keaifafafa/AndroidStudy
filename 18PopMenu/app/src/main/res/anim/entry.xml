@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    设置移动的动画效果
+    duration:持续时间
+    -->
+    <translate
+        android:duration="2000"
+        android:fromYDelta="80"
+        android:toYDelta="0"></translate>
+    <!-- 数值越小越透明 -->
+    <alpha
+        android:fromAlpha="0.2"
+        android:toAlpha="1"></alpha>
+</set>

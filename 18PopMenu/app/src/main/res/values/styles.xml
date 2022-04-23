@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 合并动画  -->
+    <style name="popanimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/entry</item>
+        <item name="android:windowExitAnimation">@anim/close</item>
+    </style>
+</resources>
